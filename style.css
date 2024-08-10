@@ -11,7 +11,7 @@
 }
 
 body {
-    background-color: #f0f0f0; /* Light gray background */
+    background-color: #f0f2f5; /* Light gray background */
     margin: 0;
     padding: 0;
     color: #333;
@@ -28,8 +28,8 @@ body {
     max-width: 800px; /* Limit container width for better readability */
     padding: 30px;
     background-color: #fff;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
     text-align: center;
 }
 
@@ -48,8 +48,8 @@ h1 {
     align-items: center;
     margin-bottom: 30px;
     position: relative; /* For the search icon */
-    background-color: #f8f8f8; /* Light gray background for search bar */
-    border-radius: 10px;
+    background-color: #f5f5f5; /* Light gray background for search bar */
+    border-radius: 5px;
     padding: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Search bar shadow */
     overflow: hidden; /* Hide overflow for a cleaner look */
