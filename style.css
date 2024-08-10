@@ -1,4 +1,14 @@
 /* General Styling */
+@font-face {
+    font-family: 'LemonMilkLight'; /* Choose a font family name */
+    src: url('LEMONMILK-Light.otf'); /* Path to your font file */
+    font-weight: 300; /* Optional: Set font weight if needed */
+}
+
+* {
+    font-family: 'LemonMilkLight', sans-serif; /* Use the custom font */
+}
+
 body {
     font-family: 'Roboto', sans-serif; /* Use Roboto font for a clean look */
     background-color: #f0f0f0; /* Light gray background */
