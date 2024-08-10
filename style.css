@@ -8,10 +8,13 @@
 * {
     font-family: 'LemonMilkLight', sans-serif; /* Use the custom font */
     box-sizing: border-box; /* Include padding and border in element's total width and height */
+    line-height: 1.6;
+    transition-duration: 600ms; /* Smooth transitions for all elements */
+    transition-timing-function: ease-in-out; /* Ease in and out for smoother transitions */
 }
 
 body {
-    background-color: #f0f2f5; /* Light gray background */
+    background-color: #f5f5f5; /* Light gray background */
     margin: 0;
     padding: 0;
     color: #333;
@@ -31,14 +34,16 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
     text-align: center;
+    animation: containerAnimation 1s ease-in-out; /* Animation for container */
 }
 
 h1 {
     color: #333;
     font-size: 2.8em;
     margin-bottom: 25px;
-    font-weight: 600; /* Slightly bolder heading */
+    font-weight: 700; /* Slightly bolder heading */
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
+    animation: headingAnimation 1s ease-in-out; /* Animation for heading */
 }
 
 /* Search Bar */
@@ -53,6 +58,7 @@ h1 {
     padding: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Search bar shadow */
     overflow: hidden; /* Hide overflow for a cleaner look */
+    animation: searchBarAnimation 1s ease-in-out; /* Animation for search bar */
 }
 
 #search-input {
@@ -62,11 +68,12 @@ h1 {
     font-size: 16px;
     width: 100%; /* Make the input field take up full width */
     margin-right: 15px;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s ease-in-out; /* Smooth transition for border color */
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle input shadow */
     background-color: #f2f2f2; /* Light gray background for input */
     color: #555; /* Slightly darker text color for better contrast */
     border: none; /* Remove default border */
+    animation: inputAnimation 1s ease-in-out; /* Animation for input field */
 }
 
 #search-input:focus {
@@ -82,9 +89,10 @@ h1 {
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease-in-out; /* Smooth transition for background color */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Button shadow */
     background: linear-gradient(to bottom, #007bff, #0056b3); /* Gradient for button */
+    animation: buttonAnimation 1s ease-in-out; /* Animation for button */
 }
 
 #search-button:hover {
@@ -99,11 +107,13 @@ h1 {
     transform: translateY(-50%);
     color: #555;
     pointer-events: none; /* Prevent clicking on the icon */
+    animation: iconAnimation 1s ease-in-out; /* Animation for icon */
 }
 
 /* Filters */
 .filters {
     margin-bottom: 30px;
+    animation: filtersAnimation 1s ease-in-out; /* Animation for filters */
 }
 
 .filters h2 {
@@ -111,6 +121,7 @@ h1 {
     font-size: 1.6em;
     margin-bottom: 15px;
     font-weight: 500; /* Slightly bolder heading */
+    animation: filtersHeadingAnimation 1s ease-in-out; /* Animation for filters heading */
 }
 
 .filters div {
@@ -121,6 +132,7 @@ label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
+    animation: labelAnimation 1s ease-in-out; /* Animation for labels */
 }
 
 #genre-filter, #year-filter {
@@ -129,11 +141,12 @@ label {
     border-radius: 8px;
     font-size: 16px;
     width: 100%;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s ease-in-out; /* Smooth transition for border color */
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle input shadow */
     background-color: #f2f2f2; /* Light gray background for input */
     color: #555; /* Slightly darker text color for better contrast */
     border: none; /* Remove default border */
+    animation: filterInputAnimation 1s ease-in-out; /* Animation for filter inputs */
 }
 
 #genre-filter:focus, #year-filter:focus {
@@ -147,23 +160,26 @@ label {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjust column width */
     gap: 25px;
+    animation: resultsAnimation 1s ease-in-out; /* Animation for results */
 }
 
 .anime-result {
     border: 1px solid #ddd;
-    padding: 20px;
+    padding: 30px;
     text-align: left;
     border-radius: 12px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
     background-color: #fff;
-    transition: box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease-in-out; /* Smooth transition for box shadow */
     overflow: hidden; /* Hide content that overflows */
     position: relative; /* For the gradient overlay */
+    animation: resultAnimation 1s ease-in-out; /* Animation for anime results */
 }
 
 .anime-result:hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25); /* Enhanced shadow on hover */
     transform: translateY(-2px); /* Slight lift on hover */
+    transition: transform 0.3s ease-in-out; /* Smooth transition for transform */
 }
 
 .anime-result img {
@@ -171,6 +187,7 @@ label {
     height: auto;
     border-radius: 10px;
     object-fit: cover; /* Ensure images fit nicely */
+    animation: imageAnimation 1s ease-in-out; /* Animation for images */
 }
 
 .anime-result h3 {
@@ -178,11 +195,13 @@ label {
     font-size: 1.4em;
     margin-top: 15px;
     font-weight: 500; /* Slightly bolder heading */
+    animation: resultHeadingAnimation 1s ease-in-out; /* Animation for result headings */
 }
 
 .anime-result p {
     color: #555;
     margin-top: 8px;
+    animation: resultParagraphAnimation 1s ease-in-out; /* Animation for result paragraphs */
 }
 
 /* Gradient Overlay for Anime Results */
@@ -195,8 +214,9 @@ label {
     height: 100%;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)); /* Subtle gradient */
     opacity: 0; /* Initially hidden */
-    transition: opacity 0.3s ease; /* Smooth transition on hover */
+    transition: opacity 0.3s ease-in-out; /* Smooth transition for opacity */
     z-index: -1; /* Place behind the content */
+    animation: gradientAnimation 1s ease-in-out; /* Animation for gradient overlay */
 }
 
 .anime-result:hover::before {
@@ -248,6 +268,7 @@ h1 {
     background: linear-gradient(to bottom, #007bff, #0056b3); /* Gradient for button */
     border: none; /* Remove default border */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Stronger shadow */
+    transition-duration: 600ms;
 }
 
 /* Filters */
@@ -264,9 +285,9 @@ h1 {
 /* Results */
 .anime-result {
     border: none; /* Remove default border */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Stronger shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Stronger shadow */
     background-color: #fff; /* White background for results */
-    transition: transform 0.3s ease; /* Smooth transition on hover */
+    transition: transform 0.3s ease-in-out; /* Smooth transition for transform */
 }
 
 .anime-result:hover {
@@ -302,5 +323,182 @@ h1 {
 
     .anime-result {
         grid-template-columns: 1fr; /* Single column layout on smaller screens */
+    }
+}
+
+/* Animations */
+@keyframes containerAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes headingAnimation {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes searchBarAnimation {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes inputAnimation {
+    0% {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes buttonAnimation {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes iconAnimation {
+    0% {
+        opacity: 0;
+        transform: rotate(360deg);
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes filtersAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes filtersHeadingAnimation {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes labelAnimation {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes filterInputAnimation {
+    0% {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes resultsAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes resultAnimation {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes imageAnimation {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes resultHeadingAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes resultParagraphAnimation {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes gradientAnimation {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
     }
 }
