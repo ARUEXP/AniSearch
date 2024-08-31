@@ -155,6 +155,7 @@ main:hover {
   }
 
   .anime-form {
+    flex-direction: row;
     gap: 0.5rem;
   }
 
