@@ -1,56 +1,70 @@
-const searchInput = document.getElementById('search-input');
-const searchButton = document.getElementById('search-button');
-const resultsContainer = document.getElementById('results');
-const genreFilter = document.getElementById('genre-filter');
-const yearFilter = document.getElementById('year-filter');
+let animeList = [];
 
-// Function to fetch anime data (you'll need to replace this with your API call)
-function fetchAnimeData(query, genre, year) {
-    // Example using a placeholder API (replace with your actual API)
-    const apiUrl = `https://api.example.com/anime?q=${query}&genre=${genre}&year=${year}`;
-    fetch(apiUrl)
-        .then(response => response.json())
-        .then(data => displayResults(data))
-        .catch(error => console.error('Error fetching data:', error));
+// Function to add anime to the list
+function addAnime() {
+  const name = document.getElementById('anime-name').value;
+  const status = document.getElementById('anime-status').value;
+
+  if (name.trim() === '') {
+    alert('Please enter an anime name.');
+    return;
+  }
+
+  const anime = {
+    name: name,
+    status: status,
+  };
+
+  animeList.push(anime);
+  renderList();
+  clearForm();
 }
 
-// Function to display anime results
-function displayResults(data) {
-    resultsContainer.innerHTML = ''; // Clear previous results
-
-    data.forEach(anime => {
-        const animeResult = document.createElement('div');
-        animeResult.classList.add('anime-result');
-        animeResult.innerHTML = `
-            <img src="${anime.image}" alt="${anime.title}">
-            <h3>${anime.title}</h3>
-            <p>Genre: ${anime.genre}</p>
-            <p>Year: ${anime.year}</p>
-        `;
-        resultsContainer.appendChild(animeResult);
-    });
+// Function to clear the form after adding anime
+function clearForm() {
+  document.getElementById('anime-name').value = '';
+  document.getElementById('anime-status').value = 'Plan to Watch';
 }
 
-// Event listener for search button
-searchButton.addEventListener('click', () => {
-    const query = searchInput.value;
-    const genre = genreFilter.value;
-    const year = yearFilter.value;
-    fetchAnimeData(query, genre, year);
-});
+// Function to render the anime list
+function renderList() {
+  const listElement = document.getElementById('anime-list');
+  listElement.innerHTML = '';
 
-// Event listener for genre filter (add more filters as needed)
-genreFilter.addEventListener('change', () => {
-    const query = searchInput.value;
-    const genre = genreFilter.value;
-    const year = yearFilter.value;
-    fetchAnimeData(query, genre, year);
-});
+  animeList.forEach((anime, index) => {
+    const listItem = document.createElement('li');
+    listItem.innerHTML = `${anime.name} - ${anime.status} 
+            <button onclick="deleteAnime(${index})">Delete</button>`;
+    listElement.appendChild(listItem);
+  });
+}
 
-// Event listener for year filter (add more filters as needed)
-yearFilter.addEventListener('change', () => {
-    const query = searchInput.value;
-    const genre = genreFilter.value;
-    const year = yearFilter.value;
-    fetchAnimeData(query, genre, year);
-});
+// Function to delete an anime from the list
+function deleteAnime(index) {
+  animeList.splice(index, 1);
+  renderList();
+}
+
+// Function to generate a shareable link with the anime data
+function generateLink() {
+  const dataString = encodeURIComponent(JSON.stringify(animeList));
+  const url = `${window.location.origin}${window.location.pathname}?data=${dataString}`;
+  document.getElementById('share-link').value = url;
+}
+
+// Function to load data from the URL
+function loadDataFromURL() {
+  const params = new URLSearchParams(window.location.search);
+  if (params.has('data')) {
+    const dataString = params.get('data');
+    try {
+      animeList = JSON.parse(decodeURIComponent(dataString));
+      renderList();
+    } catch (e) {
+      console.error('Failed to parse anime data from URL', e);
+    }
+  }
+}
+
+// Load data when the page loads
+window.onload = loadDataFromURL;
