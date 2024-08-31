@@ -8,7 +8,7 @@ const urlsToCache = [
   '/icons/icon-512x512.png',
 ];
 
-// Install the service worker and cache resources
+// Install Service Worker
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
@@ -17,7 +17,7 @@ self.addEventListener('install', (event) => {
   );
 });
 
-// Fetch resources from cache
+// Fetch Resources from Cache
 self.addEventListener('fetch', (event) => {
   event.respondWith(
     caches.match(event.request).then((response) => {
