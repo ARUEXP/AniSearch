@@ -1,20 +1,11 @@
-/* General Styling */
-@font-face {
-  font-family: 'LemonMilkLight'; /* Choose a font family name */
-  src: url('LEMONMILK-Light.otf'); /* Path to your font file */
-  font-weight: 300; /* Optional: Set font weight if needed */
-}
-
 * {
-  font-family: 'LemonMilkLight', sans-serif; /* Use the custom font */
-  box-sizing: border-box; /* Include padding and border in element's total width and height */
-  line-height: 1.6;
-  transition-duration: 600ms; /* Smooth transitions for all elements */
-  transition-timing-function: ease-in-out; /* Ease in and out for smoother transitions */
+  font-family: 'Samsung Sharp Sans';
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  font-family: 'Lemon Milk Light', sans-serif;
   background-color: #f5f5f5;
   color: #333;
   margin: 0;
