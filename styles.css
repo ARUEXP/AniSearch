@@ -19,19 +19,17 @@
   margin: 0;
   padding: 0;
   text-align: center;
-  align-items: center;
-  justify-content: center;
 }
 
 body {
   background-color: #f0f4f8;
   color: #333;
-  margin: 0;
-  padding: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: 'Samsung Sharp Sans Light', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 header {
@@ -43,17 +41,19 @@ header {
   font-family: 'Samsung Sharp Sans Bold', sans-serif;
 }
 
+h1,
+h2 {
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.5px;
+}
+
 h1 {
   font-size: 1.8rem;
-  letter-spacing: 0.5px;
-  font-family: 'Samsung Sharp Sans Bold', sans-serif;
 }
 
 h2 {
   font-size: 1.2rem;
-  margin-bottom: 0.5rem;
   color: #444;
-  font-family: 'Samsung Sharp Sans', sans-serif;
 }
 
 main {
@@ -65,7 +65,6 @@ main {
   border-radius: 8px;
   margin-top: 1rem;
   transition: all 0.2s ease;
-  font-family: 'Samsung Sharp Sans Light', sans-serif;
 }
 
 main:hover {
@@ -81,24 +80,26 @@ main:hover {
 }
 
 .anime-form input,
-.anime-form select {
+.anime-form select,
+#share-link {
   padding: 0.4rem;
   font-size: 0.9rem;
   border: 1px solid #ddd;
   border-radius: 4px;
   width: 100%;
   transition: border-color 0.2s ease;
-  font-family: 'Samsung Sharp Sans', sans-serif;
 }
 
 .anime-form input:focus,
-.anime-form select:focus {
+.anime-form select:focus,
+#share-link:focus {
   border-color: #ff6b6b;
   outline: none;
 }
 
-.anime-form button {
-  padding: 0.5rem;
+.anime-form button,
+.anime-list button {
+  padding: 0.5rem 0.6rem;
   font-size: 0.9rem;
   background-color: #ff6b6b;
   color: white;
@@ -108,9 +109,11 @@ main:hover {
   transition: background-color 0.3s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   font-family: 'Samsung Sharp Sans Bold', sans-serif;
+  margin-top: 0.3rem;
 }
 
-.anime-form button:hover {
+.anime-form button:hover,
+.anime-list button:hover {
   background-color: #e65e5e;
 }
 
@@ -131,44 +134,10 @@ main:hover {
   align-items: center;
   flex-wrap: wrap;
   transition: box-shadow 0.2s ease;
-  font-family: 'Samsung Sharp Sans', sans-serif;
 }
 
 .anime-list li:hover {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
-}
-
-.anime-list button {
-  background-color: #ff6b6b;
-  color: white;
-  border: none;
-  padding: 0.3rem 0.6rem;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-  margin-top: 0.3rem;
-  font-family: 'Samsung Sharp Sans Bold', sans-serif;
-}
-
-.anime-list button:hover {
-  background-color: #e65e5e;
-}
-
-#share-link {
-  width: 100%;
-  margin-top: 0.5rem;
-  padding: 0.4rem;
-  font-size: 0.9rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  background-color: #fafafa;
-  transition: border-color 0.2s ease;
-  font-family: 'Samsung Sharp Sans', sans-serif;
-}
-
-#share-link:focus {
-  border-color: #ff6b6b;
-  outline: none;
 }
 
 /* Media Queries for Responsiveness */
