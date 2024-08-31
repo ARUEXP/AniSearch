@@ -1,7 +1,16 @@
 @font-face {
   font-family: 'Samsung Sharp Sans';
-  src: url(SAMSUNGSHARPSANS.OTF);
+  src: url(samsungSharpSans/SAMSUNGSHARPSANS.OTF);
 }
+@font-face {
+  font-family: 'Samsung Sharp Sans Bold';
+  src: url(samsungSharpSans/SAMSUNGSHARPSANS-BOLD.OTF);
+}
+@font-face {
+  font-family: 'Samsung Sharp Sans Light';
+  src: url(samsungSharpSans/SAMSUNGSHARPSANS-LIGHT.OTF);
+}
+
 * {
   font-family: 'Samsung Sharp Sans';
   box-sizing: border-box;
