@@ -2,17 +2,19 @@
   font-family: 'Samsung Sharp Sans';
   src: url(samsungSharpSans/SAMSUNGSHARPSANS.OTF);
 }
+
 @font-face {
   font-family: 'Samsung Sharp Sans Bold';
   src: url(samsungSharpSans/SAMSUNGSHARPSANS-BOLD.OTF);
 }
+
 @font-face {
   font-family: 'Samsung Sharp Sans Light';
   src: url(samsungSharpSans/SAMSUNGSHARPSANS-LIGHT.OTF);
 }
 
 * {
-  font-family: 'Samsung Sharp Sans';
+  font-family: 'Samsung Sharp Sans', sans-serif;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -29,6 +31,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: 'Samsung Sharp Sans Light', sans-serif;
 }
 
 header {
@@ -37,17 +40,20 @@ header {
   padding: 1rem 0;
   color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: 'Samsung Sharp Sans Bold', sans-serif;
 }
 
 h1 {
   font-size: 1.8rem;
   letter-spacing: 0.5px;
+  font-family: 'Samsung Sharp Sans Bold', sans-serif;
 }
 
 h2 {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
   color: #444;
+  font-family: 'Samsung Sharp Sans', sans-serif;
 }
 
 main {
@@ -59,6 +65,7 @@ main {
   border-radius: 8px;
   margin-top: 1rem;
   transition: all 0.2s ease;
+  font-family: 'Samsung Sharp Sans Light', sans-serif;
 }
 
 main:hover {
@@ -81,6 +88,7 @@ main:hover {
   border-radius: 4px;
   width: 100%;
   transition: border-color 0.2s ease;
+  font-family: 'Samsung Sharp Sans', sans-serif;
 }
 
 .anime-form input:focus,
@@ -99,6 +107,7 @@ main:hover {
   cursor: pointer;
   transition: background-color 0.3s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: 'Samsung Sharp Sans Bold', sans-serif;
 }
 
 .anime-form button:hover {
@@ -122,6 +131,7 @@ main:hover {
   align-items: center;
   flex-wrap: wrap;
   transition: box-shadow 0.2s ease;
+  font-family: 'Samsung Sharp Sans', sans-serif;
 }
 
 .anime-list li:hover {
@@ -137,6 +147,7 @@ main:hover {
   border-radius: 4px;
   transition: background-color 0.3s ease;
   margin-top: 0.3rem;
+  font-family: 'Samsung Sharp Sans Bold', sans-serif;
 }
 
 .anime-list button:hover {
@@ -152,6 +163,7 @@ main:hover {
   border-radius: 4px;
   background-color: #fafafa;
   transition: border-color 0.2s ease;
+  font-family: 'Samsung Sharp Sans', sans-serif;
 }
 
 #share-link:focus {
