@@ -1,3 +1,4 @@
+/* Fonts */
 @font-face {
   font-family: 'Samsung Sharp Sans';
   src: url(samsungSharpSans/SAMSUNGSHARPSANS.OTF);
@@ -13,6 +14,7 @@
   src: url(samsungSharpSans/SAMSUNGSHARPSANS-LIGHT.OTF);
 }
 
+/* Global Styles */
 * {
   font-family: 'Samsung Sharp Sans', sans-serif;
   box-sizing: border-box;
@@ -20,22 +22,27 @@
   padding: 0;
 }
 
+::-webkit-scrollbar {
+  height: 0;
+  width: 0;
+}
+
+/* Body Styles */
 body {
   background-color: #f0f4f8;
   color: #333;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0;
-  padding: 0;
   font-family: 'Samsung Sharp Sans Light', sans-serif;
   line-height: 1.6;
 }
 
+/* Header Styles */
 header {
   background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
   width: 100%;
-  padding: 0.75rem 0; /* Reduced padding for smaller height */
+  padding: 0.75rem 0;
   color: #fff;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   font-family: 'Samsung Sharp Sans Bold', sans-serif;
@@ -44,17 +51,13 @@ header {
   text-align: center;
 }
 
+/* Heading Styles */
 h1 {
-  font-size: 1.5rem; /* Reduced font size for smaller header */
+  font-size: 1.5rem;
   margin: 0;
 }
 
-h2 {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-  color: #444;
-}
-
+/* Main Content Styles */
 main {
   width: 90%;
   max-width: 600px;
@@ -63,6 +66,7 @@ main {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   margin-top: 1rem;
+  margin-bottom: 2rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -71,7 +75,8 @@ main:hover {
   transform: translateY(-5px);
 }
 
-.anime-form {
+/* Form Styles */
+#anime-form {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
@@ -79,8 +84,8 @@ main:hover {
   width: 100%;
 }
 
-.anime-form input,
-.anime-form select,
+#anime-form input,
+#anime-form select,
 #share-link {
   padding: 0.6rem;
   font-size: 1rem;
@@ -90,16 +95,16 @@ main:hover {
   transition: border-color 0.3s ease;
 }
 
-.anime-form input:focus,
-.anime-form select:focus,
+#anime-form input:focus,
+#anime-form select:focus,
 #share-link:focus {
   border-color: #ff6b6b;
   outline: none;
   box-shadow: 0 0 5px rgba(255, 107, 107, 0.5);
 }
 
-.anime-form button,
-.anime-list button {
+/* Add Anime Button */
+#anime-form button {
   padding: 0.6rem 1rem;
   font-size: 1rem;
   background-color: #ff6b6b;
@@ -112,64 +117,108 @@ main:hover {
   font-family: 'Samsung Sharp Sans Bold', sans-serif;
 }
 
-.anime-form button:hover,
-.anime-list button:hover {
+#anime-form button:hover {
   background-color: #e65e5e;
   transform: translateY(-2px);
 }
 
-.anime-list ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+/* Shareable Link Input */
+#share-link {
+  background-color: #fafafa;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  padding: 0.6rem;
+  border-radius: 6px;
   width: 100%;
 }
 
-.anime-list li {
+/* Generate Link Button */
+button[onclick='generateLink()'] {
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease,
+    box-shadow 0.2s ease;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  margin: 0.75rem 0;
+  font-family: 'Samsung Sharp Sans Bold', sans-serif;
+}
+
+button[onclick='generateLink()']:hover {
+  background-color: #45a049;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Anime List Styles */
+#anime-list {
+  list-style-type: none;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+#anime-list li {
+  display: flex;
+  flex-direction: column;
   padding: 1rem;
   margin-bottom: 0.7rem;
   background-color: #f9f9f9;
   border: 1px solid #ddd;
   border-radius: 8px;
-  display: flex;
   justify-content: space-between;
-  align-items: center;
   transition: box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
 }
 
-.anime-list li:hover {
+#anime-list li:hover {
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
-.anime-list button {
+/* Delete Button for List Items */
+#anime-list button {
   align-self: flex-end;
   margin-top: 0.5rem;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-family: 'Samsung Sharp Sans Bold', sans-serif;
+  width: 100%;
 }
 
-#share-link {
-  background-color: #fafafa;
-  margin-top: 0.8rem;
+#anime-list button:hover {
+  background-color: #e65e5e;
+  transform: translateY(-2px);
 }
 
+/* Responsive Styles */
 @media (max-width: 600px) {
   main {
     width: 95%;
     padding: 1.2rem;
   }
 
-  .anime-form {
+  #anime-form {
     gap: 0.6rem;
   }
 
-  .anime-list li {
+  #anime-list li {
     flex-direction: column;
     align-items: flex-start;
     padding: 0.8rem;
   }
 
-  .anime-list button {
+  #anime-list button {
     width: 100%;
     margin-top: 0.6rem;
   }

@@ -13,41 +13,43 @@
     </header>
 
     <main>
-      <section class="anime-form">
-        <input type="text" id="anime-name" placeholder="Anime Name" />
+      <form id="anime-form">
+        <input type="text" id="anime-name" placeholder="Anime Name" required />
         <input
           type="number"
           id="anime-seasons"
           placeholder="Total Seasons"
           min="1"
+          required
         />
         <input
           type="number"
           id="anime-episodes"
           placeholder="Total Episodes"
           min="1"
+          required
         />
-        <select id="anime-rating">
+
+        <select id="anime-rating" required>
+          <option value="" disabled selected>TV Rating</option>
           <option value="TV">TV</option>
           <option value="R">R</option>
           <option value="R+">R+</option>
         </select>
+
         <select id="anime-status">
           <option value="Plan to Watch">Plan to Watch</option>
           <option value="Watching">Watching</option>
           <option value="Completed">Completed</option>
+          <option value="Dropped">Dropped</option>
         </select>
-        <button onclick="addAnime()">Add Anime</button>
-      </section>
 
-      <section class="anime-list">
-        <h2>Your Anime List</h2>
-        <ul id="anime-list">
-          <!-- List items will be dynamically added here -->
-        </ul>
-        <button onclick="generateLink()">Generate Shareable Link</button>
-        <input type="text" id="share-link" readonly />
-      </section>
+        <button type="button" onclick="addAnime()">Add Anime</button>
+      </form>
+
+      <input type="text" id="share-link" readonly />
+      <button onclick="generateLink()">Generate Shareable Link</button>
+      <ul id="anime-list"></ul>
     </main>
 
     <script src="script.js"></script>

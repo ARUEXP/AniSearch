@@ -3,6 +3,9 @@ let animeList = [];
 // Function to add anime to the list
 function addAnime() {
   const name = document.getElementById('anime-name').value;
+  const seasons = document.getElementById('anime-seasons').value;
+  const episodes = document.getElementById('anime-episodes').value;
+  const rating = document.getElementById('anime-rating').value;
   const status = document.getElementById('anime-status').value;
 
   if (name.trim() === '') {
@@ -12,6 +15,9 @@ function addAnime() {
 
   const anime = {
     name: name,
+    seasons: seasons,
+    episodes: episodes,
+    rating: rating,
     status: status,
   };
 
@@ -23,6 +29,9 @@ function addAnime() {
 // Function to clear the form after adding anime
 function clearForm() {
   document.getElementById('anime-name').value = '';
+  document.getElementById('anime-seasons').value = '';
+  document.getElementById('anime-episodes').value = '';
+  document.getElementById('anime-rating').value = '';
   document.getElementById('anime-status').value = 'Plan to Watch';
 }
 
@@ -33,8 +42,13 @@ function renderList() {
 
   animeList.forEach((anime, index) => {
     const listItem = document.createElement('li');
-    listItem.innerHTML = `${anime.name} - ${anime.status} 
-            <button onclick="deleteAnime(${index})">Delete</button>`;
+    listItem.innerHTML = `
+      <div><strong>${anime.name}</strong> - ${anime.status}</div>
+      <div>Total Seasons: ${anime.seasons}</div>
+      <div>Total Episodes: ${anime.episodes}</div>
+      <div>TV Rating: ${anime.rating}</div>
+      <button onclick="deleteAnime(${index})">Delete</button>
+    `;
     listElement.appendChild(listItem);
   });
 }
