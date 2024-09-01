@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Anime Tracker</title>
     <link rel="stylesheet" href="styles.css" />
-    <link rel="manifest" href="manifest.json" />
   </head>
   <body>
     <header>
@@ -47,8 +46,17 @@
         <button type="button" onclick="addAnime()">Add Anime</button>
       </form>
 
-      <input type="text" id="share-link" readonly />
-      <button onclick="generateLink()">Generate Shareable Link</button>
+      <div class="link-container">
+        <input
+          type="text"
+          id="share-link"
+          readonly
+          placeholder="Your sharable link will appear here"
+        />
+        <button onclick="generateLink()">Generate Shareable Link</button>
+        <button onclick="copyLink()">Copy Link</button>
+      </div>
+
       <ul id="anime-list"></ul>
     </main>
 
