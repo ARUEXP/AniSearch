@@ -34,7 +34,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'Samsung Sharp Sans Light', sans-serif; /* Lighter font for body text */
+  font-family: 'Samsung Sharp Sans Light', sans-serif;
   line-height: 1.6;
 }
 
@@ -45,7 +45,7 @@ header {
   padding: 0.75rem 0;
   color: #fff;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  font-family: 'Samsung Sharp Sans Bold', sans-serif; /* Bold font for header */
+  font-family: 'Samsung Sharp Sans Bold', sans-serif;
   text-transform: uppercase;
   letter-spacing: 1.5px;
   text-align: center;
@@ -68,7 +68,7 @@ main {
   margin-top: 1rem;
   margin-bottom: 2rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  font-family: 'Samsung Sharp Sans', sans-serif; /* General font for main content */
+  font-family: 'Samsung Sharp Sans', sans-serif;
 }
 
 main:hover {
@@ -94,7 +94,7 @@ main:hover {
   border-radius: 6px;
   width: 100%;
   transition: border-color 0.3s ease;
-  font-family: 'Samsung Sharp Sans', sans-serif; /* General font for form elements */
+  font-family: 'Samsung Sharp Sans', sans-serif;
 }
 
 #anime-form input:focus,
@@ -116,7 +116,7 @@ main:hover {
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  font-family: 'Samsung Sharp Sans Bold', sans-serif; /* Bold font for buttons */
+  font-family: 'Samsung Sharp Sans Bold', sans-serif;
 }
 
 #anime-form button:hover {
@@ -124,30 +124,35 @@ main:hover {
   transform: translateY(-2px);
 }
 
-/* Link Container Styles */
-.link-container {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-  width: 100%;
-}
-
+/* Shareable Link Input */
 #share-link {
   background-color: #fafafa;
   font-size: 1rem;
   border: 1px solid #ddd;
   padding: 0.6rem;
   border-radius: 6px;
-  width: calc(100% - 140px); /* Adjust width to accommodate buttons */
+  width: 100%;
 }
 
-/* Generate Link and Copy Link Buttons */
+/* Link Container */
+.link-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+/* Button Group for Generate and Copy Buttons */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+}
+
 button[onclick='generateLink()'],
 button[onclick='copyLink()'] {
   padding: 0.6rem 1rem;
   font-size: 1rem;
-  background-color: #4caf50; /* Different color to distinguish it */
+  background-color: #4caf50;
   color: white;
   border: none;
   border-radius: 6px;
@@ -155,7 +160,8 @@ button[onclick='copyLink()'] {
   transition: background-color 0.3s ease, transform 0.2s ease,
     box-shadow 0.2s ease;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-  font-family: 'Samsung Sharp Sans Bold', sans-serif; /* Bold font for buttons */
+  width: 48%;
+  font-family: 'Samsung Sharp Sans Bold', sans-serif;
 }
 
 button[onclick='generateLink()']:hover,
@@ -209,7 +215,7 @@ button[onclick='copyLink()']:hover {
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  font-family: 'Samsung Sharp Sans Bold', sans-serif; /* Bold font for delete buttons */
+  font-family: 'Samsung Sharp Sans Bold', sans-serif;
   width: 100%;
 }
 
@@ -238,14 +244,5 @@ button[onclick='copyLink()']:hover {
   #anime-list button {
     width: 100%;
     margin-top: 0.6rem;
-  }
-
-  .link-container {
-    flex-direction: column;
-    gap: 0.6rem;
-  }
-
-  #share-link {
-    width: 100%;
   }
 }
