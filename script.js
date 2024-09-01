@@ -63,7 +63,13 @@ function deleteAnime(index) {
 function generateLink() {
   const dataString = encodeURIComponent(JSON.stringify(animeList));
   const url = `${window.location.origin}${window.location.pathname}?data=${dataString}`;
-  document.getElementById('share-link').value = url;
+
+  // Shorten the link if it is too long
+  const maxLength = 50; // Maximum length of the link text before truncation
+  const shortenedUrl =
+    url.length > maxLength ? url.substring(0, maxLength - 3) + '...' : url;
+
+  document.getElementById('share-link').value = shortenedUrl;
 }
 
 // Function to load data from the URL
