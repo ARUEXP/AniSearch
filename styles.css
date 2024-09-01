@@ -124,18 +124,27 @@ main:hover {
   transform: translateY(-2px);
 }
 
-/* Shareable Link Input */
+/* Link Container Styles */
+.link-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
 #share-link {
   background-color: #fafafa;
   font-size: 1rem;
   border: 1px solid #ddd;
   padding: 0.6rem;
   border-radius: 6px;
-  width: 100%;
+  width: calc(100% - 140px); /* Adjust width to accommodate buttons */
 }
 
-/* Generate Link Button */
-button[onclick='generateLink()'] {
+/* Generate Link and Copy Link Buttons */
+button[onclick='generateLink()'],
+button[onclick='copyLink()'] {
   padding: 0.6rem 1rem;
   font-size: 1rem;
   background-color: #4caf50; /* Different color to distinguish it */
@@ -146,11 +155,11 @@ button[onclick='generateLink()'] {
   transition: background-color 0.3s ease, transform 0.2s ease,
     box-shadow 0.2s ease;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-  margin: 0.75rem 0;
-  font-family: 'Samsung Sharp Sans Bold', sans-serif; /* Bold font for button */
+  font-family: 'Samsung Sharp Sans Bold', sans-serif; /* Bold font for buttons */
 }
 
-button[onclick='generateLink()']:hover {
+button[onclick='generateLink()']:hover,
+button[onclick='copyLink()']:hover {
   background-color: #45a049;
   transform: translateY(-3px);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
@@ -229,5 +238,14 @@ button[onclick='generateLink()']:hover {
   #anime-list button {
     width: 100%;
     margin-top: 0.6rem;
+  }
+
+  .link-container {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  #share-link {
+    width: 100%;
   }
 }
