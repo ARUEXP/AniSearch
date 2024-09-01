@@ -34,7 +34,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'Samsung Sharp Sans Light', sans-serif;
+  font-family: 'Samsung Sharp Sans Light', sans-serif; /* Lighter font for body text */
   line-height: 1.6;
 }
 
@@ -45,7 +45,7 @@ header {
   padding: 0.75rem 0;
   color: #fff;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  font-family: 'Samsung Sharp Sans Bold', sans-serif;
+  font-family: 'Samsung Sharp Sans Bold', sans-serif; /* Bold font for header */
   text-transform: uppercase;
   letter-spacing: 1.5px;
   text-align: center;
@@ -68,6 +68,7 @@ main {
   margin-top: 1rem;
   margin-bottom: 2rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'Samsung Sharp Sans', sans-serif; /* General font for main content */
 }
 
 main:hover {
@@ -93,6 +94,7 @@ main:hover {
   border-radius: 6px;
   width: 100%;
   transition: border-color 0.3s ease;
+  font-family: 'Samsung Sharp Sans', sans-serif; /* General font for form elements */
 }
 
 #anime-form input:focus,
@@ -114,7 +116,7 @@ main:hover {
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  font-family: 'Samsung Sharp Sans Bold', sans-serif;
+  font-family: 'Samsung Sharp Sans Bold', sans-serif; /* Bold font for buttons */
 }
 
 #anime-form button:hover {
@@ -136,7 +138,7 @@ main:hover {
 button[onclick='generateLink()'] {
   padding: 0.6rem 1rem;
   font-size: 1rem;
-  background-color: #4caf50;
+  background-color: #4caf50; /* Different color to distinguish it */
   color: white;
   border: none;
   border-radius: 6px;
@@ -145,7 +147,7 @@ button[onclick='generateLink()'] {
     box-shadow 0.2s ease;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
   margin: 0.75rem 0;
-  font-family: 'Samsung Sharp Sans Bold', sans-serif;
+  font-family: 'Samsung Sharp Sans Bold', sans-serif; /* Bold font for button */
 }
 
 button[onclick='generateLink()']:hover {
@@ -175,6 +177,12 @@ button[onclick='generateLink()']:hover {
   overflow: hidden;
 }
 
+#anime-list li .card-head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 #anime-list li:hover {
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
@@ -192,7 +200,7 @@ button[onclick='generateLink()']:hover {
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  font-family: 'Samsung Sharp Sans Bold', sans-serif;
+  font-family: 'Samsung Sharp Sans Bold', sans-serif; /* Bold font for delete buttons */
   width: 100%;
 }
 

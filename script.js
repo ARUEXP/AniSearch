@@ -43,10 +43,10 @@ function renderList() {
   animeList.forEach((anime, index) => {
     const listItem = document.createElement('li');
     listItem.innerHTML = `
-      <div><strong>${anime.name}</strong> - ${anime.status}</div>
-      <div>Total Seasons: ${anime.seasons}</div>
-      <div>Total Episodes: ${anime.episodes}</div>
-      <div>TV Rating: ${anime.rating}</div>
+      <div class="card-head"><h3>${anime.name}</h3>(${anime.status})</div>
+      <p>Total Seasons: ${anime.seasons}</p>
+      <p>Total Episodes: ${anime.episodes}</p>
+      <p>TV Rating: ${anime.rating}</p>
       <button onclick="deleteAnime(${index})">Delete</button>
     `;
     listElement.appendChild(listItem);
