@@ -59,26 +59,40 @@ function deleteAnime(index) {
   renderList();
 }
 
-// Function to generate a shareable link with compressed anime data
+// Function to generate a short shareable link with the anime data
 function generateLink() {
-  const dataString = JSON.stringify(animeList);
-  // Compress and encode the data using LZ-String
-  const compressedData = LZString.compressToEncodedURIComponent(dataString);
-  const url = `${window.location.origin}${window.location.pathname}?data=${compressedData}`;
+  const dataString = encodeURIComponent(JSON.stringify(animeList));
+  const longUrl = `${window.location.origin}${window.location.pathname}?data=${dataString}`;
 
-  document.getElementById('share-link').value = url;
+  // Use the ulvis.net API to shorten the URL
+  const apiUrl = `https://ulvis.net/api.php?url=${encodeURIComponent(
+    longUrl
+  )}&private=1`;
+
+  fetch(apiUrl)
+    .then((response) => response.text())
+    .then((shortUrl) => {
+      if (shortUrl.includes('https://ulvis.net/')) {
+        document.getElementById('share-link').value = shortUrl;
+      } else {
+        alert('Failed to shorten the URL. Please try again.');
+      }
+    })
+    .catch((error) => {
+      console.error('Error shortening the URL:', error);
+      alert(
+        'Error shortening the URL. Please check the console for more details.'
+      );
+    });
 }
 
 // Function to load data from the URL
 function loadDataFromURL() {
   const params = new URLSearchParams(window.location.search);
   if (params.has('data')) {
-    const compressedData = params.get('data');
+    const dataString = params.get('data');
     try {
-      // Decompress the data using LZ-String
-      const dataString =
-        LZString.decompressFromEncodedURIComponent(compressedData);
-      animeList = JSON.parse(dataString);
+      animeList = JSON.parse(decodeURIComponent(dataString));
       renderList();
     } catch (e) {
       console.error('Failed to parse anime data from URL', e);
