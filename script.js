@@ -59,13 +59,16 @@ function deleteAnime(index) {
   renderList();
 }
 
-// Function to encode a URL in Base64
-function base64Encode(str) {
-  return btoa(str);
+// Function to encode a string to URL-safe Base64
+function urlSafeBase64Encode(str) {
+  return btoa(str).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
 }
 
-// Function to decode a Base64 URL
-function base64Decode(str) {
+// Function to decode a URL-safe Base64 string
+function urlSafeBase64Decode(str) {
+  str = (str + '==='.slice((str.length + 3) % 4))
+    .replace(/-/g, '+')
+    .replace(/_/g, '/');
   return atob(str);
 }
 
@@ -73,9 +76,9 @@ function base64Decode(str) {
 function generateLink() {
   const dataString = encodeURIComponent(JSON.stringify(animeList));
   const longUrl = `${window.location.origin}${window.location.pathname}?data=${dataString}`;
-  
-  // Encode the long URL in Base64
-  const encodedUrl = base64Encode(longUrl);
+
+  // Encode the long URL in URL-safe Base64
+  const encodedUrl = urlSafeBase64Encode(longUrl);
   const shortUrl = `${window.location.origin}${window.location.pathname}?data=${encodedUrl}`;
 
   document.getElementById('share-link').value = shortUrl;
@@ -87,8 +90,8 @@ function loadDataFromURL() {
   if (params.has('data')) {
     const dataString = params.get('data');
     try {
-      // Decode the Base64 URL data
-      const decodedDataString = base64Decode(dataString);
+      // Decode the URL-safe Base64 data
+      const decodedDataString = urlSafeBase64Decode(dataString);
       animeList = JSON.parse(decodeURIComponent(decodedDataString));
       renderList();
     } catch (e) {
