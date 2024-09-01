@@ -59,40 +59,26 @@ function deleteAnime(index) {
   renderList();
 }
 
-// Function to encode a string to URL-safe Base64
-function urlSafeBase64Encode(str) {
-  return btoa(str).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
-}
-
-// Function to decode a URL-safe Base64 string
-function urlSafeBase64Decode(str) {
-  str = (str + '==='.slice((str.length + 3) % 4))
-    .replace(/-/g, '+')
-    .replace(/_/g, '/');
-  return atob(str);
-}
-
-// Function to generate a shareable link with the anime data
+// Function to generate a shareable link with compressed anime data
 function generateLink() {
-  const dataString = encodeURIComponent(JSON.stringify(animeList));
-  const longUrl = `${window.location.origin}${window.location.pathname}?data=${dataString}`;
+  const dataString = JSON.stringify(animeList);
+  // Compress and encode the data using LZ-String
+  const compressedData = LZString.compressToEncodedURIComponent(dataString);
+  const url = `${window.location.origin}${window.location.pathname}?data=${compressedData}`;
 
-  // Encode the long URL in URL-safe Base64
-  const encodedUrl = urlSafeBase64Encode(longUrl);
-  const shortUrl = `${window.location.origin}${window.location.pathname}?data=${encodedUrl}`;
-
-  document.getElementById('share-link').value = shortUrl;
+  document.getElementById('share-link').value = url;
 }
 
 // Function to load data from the URL
 function loadDataFromURL() {
   const params = new URLSearchParams(window.location.search);
   if (params.has('data')) {
-    const dataString = params.get('data');
+    const compressedData = params.get('data');
     try {
-      // Decode the URL-safe Base64 data
-      const decodedDataString = urlSafeBase64Decode(dataString);
-      animeList = JSON.parse(decodeURIComponent(decodedDataString));
+      // Decompress the data using LZ-String
+      const dataString =
+        LZString.decompressFromEncodedURIComponent(compressedData);
+      animeList = JSON.parse(dataString);
       renderList();
     } catch (e) {
       console.error('Failed to parse anime data from URL', e);
