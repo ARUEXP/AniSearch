@@ -102,3 +102,5 @@ function loadDataFromURL() {
 
 // Load data when the page loads
 window.onload = loadDataFromURL;
+
+alert('1');
