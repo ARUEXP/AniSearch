@@ -59,17 +59,26 @@ function deleteAnime(index) {
   renderList();
 }
 
+// Function to encode a URL in Base64
+function base64Encode(str) {
+  return btoa(str);
+}
+
+// Function to decode a Base64 URL
+function base64Decode(str) {
+  return atob(str);
+}
+
 // Function to generate a shareable link with the anime data
 function generateLink() {
   const dataString = encodeURIComponent(JSON.stringify(animeList));
-  const url = `${window.location.origin}${window.location.pathname}?data=${dataString}`;
+  const longUrl = `${window.location.origin}${window.location.pathname}?data=${dataString}`;
+  
+  // Encode the long URL in Base64
+  const encodedUrl = base64Encode(longUrl);
+  const shortUrl = `${window.location.origin}${window.location.pathname}?data=${encodedUrl}`;
 
-  // Shorten the link if it is too long
-  const maxLength = 50; // Maximum length of the link text before truncation
-  const shortenedUrl =
-    url.length > maxLength ? url.substring(0, maxLength - 3) + '...' : url;
-
-  document.getElementById('share-link').value = shortenedUrl;
+  document.getElementById('share-link').value = shortUrl;
 }
 
 // Function to load data from the URL
@@ -78,7 +87,9 @@ function loadDataFromURL() {
   if (params.has('data')) {
     const dataString = params.get('data');
     try {
-      animeList = JSON.parse(decodeURIComponent(dataString));
+      // Decode the Base64 URL data
+      const decodedDataString = base64Decode(dataString);
+      animeList = JSON.parse(decodeURIComponent(decodedDataString));
       renderList();
     } catch (e) {
       console.error('Failed to parse anime data from URL', e);
