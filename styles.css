@@ -146,6 +146,7 @@ main:hover {
 .button-group {
   display: flex;
   justify-content: space-between;
+  gap: 0.8rem; /* Space between the buttons */
 }
 
 button[onclick='generateLink()'],
@@ -160,7 +161,7 @@ button[onclick='copyLink()'] {
   transition: background-color 0.3s ease, transform 0.2s ease,
     box-shadow 0.2s ease;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-  width: 48%;
+  width: 48%; /* Adjust width for horizontal alignment */
   font-family: 'Samsung Sharp Sans Bold', sans-serif;
 }
 
@@ -244,5 +245,15 @@ button[onclick='copyLink()']:hover {
   #anime-list button {
     width: 100%;
     margin-top: 0.6rem;
+  }
+
+  /* Adjust button group on small screens */
+  .button-group {
+    flex-direction: column;
+  }
+
+  button[onclick='generateLink()'],
+  button[onclick='copyLink()'] {
+    width: 100%;
   }
 }
